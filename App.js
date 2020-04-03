@@ -1,16 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+//Custom import files
+//import Header from './Components/Header';
+import StartGameScreen from './screens/StartGameScreen';
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <View style={styles.screen}>
+      <Header title={'Guest the Game'}/>
+      <StartGameScreen />
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
