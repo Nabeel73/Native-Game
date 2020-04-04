@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 //Custom import files
-//import Header from './Components/Header';
+import Header from './Components/Header';
 import StartGameScreen from './screens/StartGameScreen';
 
 export default function App() {
@@ -22,3 +22,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+ //export default App;
