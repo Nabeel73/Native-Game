@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { StyleSheet,View,Text, Button } from 'react-native';
+import React, {useState, useRef,useEffect} from 'react';
+import { StyleSheet,View,Text, Button , Alert} from 'react-native';
 
 //Custom import files 
 import NumberContainer from '../Components/numberContainer';
@@ -14,37 +14,74 @@ const generateRadmonBetween = (max,min, exclude) =>{
     }else{
         return rndNum;
     }
-}
+    }
 
-const GameScreen = props => {
+    const GameScreen = props => {
     const [currentGuess, setCurrentGuess] = useState(
         generateRadmonBetween(1,100, props.userChoice)
     );
-     return(
-        <View style={styles.screen}>
-            <Text>Opponent's Guess</Text>
-     <NumberContainer>{currentGuess}</NumberContainer>
-     <Card style={styles.ButtonContainer}>
-         <Button title="Smaller" onPress={() => {}}/>
-         <Button title="Greater" onPress={() => {}}/>
-     </Card>
-        </View>
-     )
-};
 
-const styles =StyleSheet.create({
-    screen:{
-        flex:1,
-        padding:10,
-        alignItems:'center',
-    },
-    ButtonContainer:{
-      flexDirection:'row',
-      justifyContent:'space-between',
-      marginTop:10,
-      width:300,
-      maxWidth:'80%',
-    }
-});
+    const [rounds,setRounds] = useState(0);
+     const currentLow = useRef(1);
+     const currentHigh = useRef(100);
 
-export default GameScreen;
+    useEffect = (() => {
+        if(currentGuess === props.userChoice){
+            props.onGameOver(rounds);
+        }
+    })    
+
+    const nextGuessHandler = direction => {
+        if( 
+        (direction === 'smaller' && currentGuess < props.userChoice) 
+        || (direction === 'greater' && currentGuess > props.userChoice)
+        ){
+            Alert.alert('Don/t lie', 'This is worng', [{
+                text:'sorry', style:'cancel'
+            }]           
+            );
+            return;
+        }
+        if (direction === 'smaller'){
+           currentHigh.current = currentGuess;
+        }else{
+            currentLow.current = currentGuess;
+        }
+
+        const nextNumber = generateRadmonBetween(
+        currentLow.current,
+        currentHigh.current,
+        currentGuess);
+        setCurrentGuess(nextNumber); 
+        setRounds(curRounds => curRounds + 1 )
+
+        };
+
+        return(
+            <View style={styles.screen}>
+                <Text>Opponent's Guess</Text>
+                    <NumberContainer>{currentGuess}</NumberContainer>
+            <Card style={styles.ButtonContainer}>
+                        <Button title="Smaller" onPress={nextGuessHandler.bind(this,'smaller')}/>
+                        <Button title="Greater" onPress={nextGuessHandler.bind(this,'greater')}/>
+        </Card>
+                </View>
+        )
+        };
+
+        const styles =StyleSheet.create({
+            screen:{
+                flex:1,
+                padding:10,
+                alignItems:'center',
+            },
+            ButtonContainer:{
+            flexDirection:'row',
+            justifyContent:'space-between',
+            marginTop:10,
+            width:300,
+            maxWidth:'80%',
+            }
+        });
+
+        export default GameScreen;

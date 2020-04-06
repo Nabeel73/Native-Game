@@ -6,7 +6,6 @@ import { View, Text, StyleSheet, Input, Button, TouchableWithoutFeedback, Keyboa
 import Card from '../Components/Card';
 import Colors from '../Constants/colors';
 import Input from '../Components/Input';
-import numberContainer from '../Components/numberContainer';
 import NumberContainer from '../Components/numberContainer';
 
 
@@ -50,7 +49,7 @@ const StartGameScreen = props => {
         <Card style={styles.summaryContainer}>
         <Text>You Selected</Text>
         <NumberContainer>{selectNumber}</NumberContainer>
-        <Button title="START GAME"/>
+        <Button title="START GAME" onPress={() => props.onStartGame(selectNumber)}/>
         </Card>
         )}
  
