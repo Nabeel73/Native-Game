@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, Input, Button, TouchableWithoutFeedback, Keyboa
 //Custom import files
 import Card from '../Components/Card';
 import Colors from '../Constants/colors';
-import Input from '../Components/Input';
+import Input from '../Components/input';
 import NumberContainer from '../Components/numberContainer';
 
 
@@ -18,8 +18,7 @@ const StartGameScreen = props => {
 
     const numberInputHandler = inputText => {
         setEndteredValue(inputText.replace(/[^0-9]/g,''));
-
-    };
+       };
 
     const resetInputHandler = () =>{
         setEndteredValue('');
