@@ -2,7 +2,7 @@ import React from 'react';
 import { View ,Text,StyleSheet} from 'react-native';
 
 //Custom import files
-import Colors from '../Constants/Colors';
+import Colors from '..//Constants/colors';
 
 
 const Header = props => { 
