@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { StyleSheet, TextInput, } from 'react-native';
 
 
 const Input = props => { 
@@ -10,8 +10,8 @@ const Input = props => {
 
 const styles = StyleSheet.create({
     Input:{
-        height:10,
-        borderBottomColor:'grey',
+        height:2,
+        borderBottomColor:' #581845 rgb ( 88, 24, 69)',
         borderBottomWidth:'1',
         marginVertical:10,
     }

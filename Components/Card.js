@@ -18,7 +18,7 @@ card:{
     shadowRadius:6,
     shadowOpacity:0.26,
     elevation:6,
-    BackgroundColor:'white',
+    //BackgroundColor:'white',
     padding:10,
     borderRadius:20,
 

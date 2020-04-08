@@ -28,7 +28,10 @@ export default function App() {
     setGuestRound(numOfRounds);
   } 
 
-  let content = <StartGameScreen onStartGame={startGameHandler} onGameOver={gameOverHandler}/>;
+  let content = <StartGameScreen 
+  onStartGame={startGameHandler}
+  onGameOver={gameOverHandler}/>;
+
   if(userNumber && guestRound <=  0 ){
       content = <GameScreen userChoice={userNumber}/>;
   }else if(guestRound > 0){

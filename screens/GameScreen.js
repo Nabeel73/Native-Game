@@ -27,7 +27,7 @@ const generateRadmonBetween = (max,min, exclude) =>{
 
      const { userChoice , onGameOver} = props;
 
-    useEffect = (() => {
+     useEffect = (() => {
         if(currentGuess === userChoice){
         onGameOver(rounds);
         }[currentGuess,userChoice,onGameOver]}

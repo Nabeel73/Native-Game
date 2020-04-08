@@ -19,13 +19,13 @@ const styles =StyleSheet.create({
         padding:10,
         borderRadius:10,
         borderWidth:2,
-        borderColor:colors.primary,
+      //  borderColor:colors.primary,
         marginVertical:10,
         justifyContent:'center',
         alignItems:'center',
     },
     number:{
-        color:colors.secondary,
+      //  color:colors.secondary,
         fontSize:10,
 
     },

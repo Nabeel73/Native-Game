@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, Input, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 
 
 //Custom import files
 import Card from '../Components/Card';
 import Colors from '../Constants/colors';
-import Input from '../Components/input';
+import Input from '../Components/Input';
 import NumberContainer from '../Components/numberContainer';
 
 
@@ -114,10 +114,10 @@ const styles = StyleSheet.create({
     },
     Button: {
         width: 100,
-        //Color:'Black',
+        color:'black',  
     },
     Input:{
-        width:'50',
+        width:'50%',
         textAlign:'center'
     },
     summaryContainer:{
